@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { todoListActions } from "../../store/todoList"
+import { todoListActions } from "../../redux/todoList"
 
-const EditButton = ({ id, isEdit, editValue }) => {
+const EditButton = ({ todo, id, isEdit, editValue }) => {
   const todosActions = todoListActions;
   const dispatch = useDispatch();
 
@@ -10,7 +10,8 @@ const EditButton = ({ id, isEdit, editValue }) => {
   }
 
   function updateTodo(id, editValue) {
-    dispatch(todosActions.updateTodo(id, editValue));
+    if(editValue) dispatch(todosActions.updateTodo([id, editValue]));
+    else dispatch(todosActions.updateTodo([id, todo]))
   }
 
   return (

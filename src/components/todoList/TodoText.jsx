@@ -10,7 +10,7 @@ const TodoText = ({ todo, isEdit, editValue, setEditValue }) => {
       }
       {isEdit &&
         <input 
-          className={commonStyle}
+          className={commonStyle + ` bg-stone-600`}
           type="text"
           value={editValue}
           onChange={(e) => setEditValue(e.target.value)} 

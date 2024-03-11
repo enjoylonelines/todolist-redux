@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { todoListActions } from "../../store/todoList";
+import { todoListActions } from "../../redux/todoList";
 
 const DeleteButton = ({id}) => {
   const dispatch = useDispatch();

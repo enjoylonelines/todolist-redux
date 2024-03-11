@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { todoListActions } from "../../store/todoList";
+import { todoListActions } from "../../redux/todoList";
 
 const AddButton = ({ inputValue, setInputValue }) => {
   const dispatch = useDispatch();

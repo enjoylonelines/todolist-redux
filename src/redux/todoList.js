@@ -16,13 +16,15 @@ const todoListSlice = createSlice({
     },
     setEdit(state, action) {
       const id = action.payload;
-      return state
-      .filter(todoItem => todoItem.id === id)
-      .with(id, {...todoItem, isEdit: true});
+      return state.map(item => {
+        if (item.id === id) return { id: item.id, todo: item.todo, isEdit: true };
+      })
     },
     updateTodo(state, action) {
-      const { id, aditTodo } = action.payload;
-      return state.with(id, { id: id, todo: aditTodo, isEdit: false });
+      const [id, editTodo] = action.payload;
+      console.log(id)
+      const idx = state.findIndex(todo => todo.id === id);
+      return state.with(idx, { id: id, todo: editTodo, isEdit: false });
     },
   }
 });
