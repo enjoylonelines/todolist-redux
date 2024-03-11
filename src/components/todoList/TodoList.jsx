@@ -6,7 +6,7 @@ const TodoList = () => {
 
   return (
     <ul className="flex-col">
-      {todoList.length > 0 && todoList.map((todo, idx) => <TodoItem key={idx} todo={todo.todo} />)}
+      {todoList.length > 0 && todoList.map((todo, idx) => <TodoItem key={idx} id={todo.id} todo={todo.todo} />)}
     </ul>
   )
 }

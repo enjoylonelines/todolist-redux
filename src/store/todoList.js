@@ -7,16 +7,16 @@ const todoListSlice = createSlice({
   initialState: initialState,
   reducers: {
     addTodo(state, action) {
-      const newTodo = {id: crypto.randomUUID(), todo: action.payload }; 
-      state.push(newTodo);
+      const newTodo = { id: crypto.randomUUID(), todo: action.payload };
+      state.push(newTodo); //내부 Immer가 불변성 관리
     },
     delTodo(state, action) {
       const id = action.payload;
-      state.map(todo => todo.id !== id)
+      return state.filter(todo => todo.id !== id) //새로운 상태를 반환할때는 return? 
     },
     aditTodo(state, action) {
-      const {id, aditTodo} = action.payload;
-      state.with(id, {id: id, todo: aditTodo});
+      const { id, aditTodo } = action.payload;
+      return state.with(id, { id: id, todo: aditTodo });
     },
   }
 });
