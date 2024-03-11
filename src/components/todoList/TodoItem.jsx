@@ -1,11 +1,11 @@
 import DeleteButton from "./DeleteButton"
 import TodoText from "./TodoText"
 
-const TodoItem = ({ key, todo }) => {
+const TodoItem = ({ id, todo }) => {
   return (
-    <li key={key} className="flex">
+    <li id={id} className="flex">
       <TodoText todo={todo} />
-      <DeleteButton />
+      <DeleteButton id={id} />
     </li>
   )
 }

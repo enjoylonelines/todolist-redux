@@ -8,7 +8,7 @@ const todoListSlice = createSlice({
   reducers: {
     addTodo(state, action) {
       const newTodo = {id: crypto.randomUUID(), todo: action.payload }; 
-      state = [...state, newTodo];
+      state.push(newTodo);
     },
     delTodo(state, action) {
       const id = action.payload;

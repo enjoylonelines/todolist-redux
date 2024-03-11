@@ -1,12 +1,14 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { todoListActions } from "../../store/todoList";
 
 const AddButton = ({ inputValue }) => {
   const dispatch = useDispatch();
   const todosActions = todoListActions;
-
+  const todoList = useSelector(state => state.todoList)
+  
   function addTodoHandler() {
     dispatch(todosActions.addTodo(inputValue));
+    console.log(todoList);
   }
 
   return (
