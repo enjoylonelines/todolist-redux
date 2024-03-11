@@ -1,10 +1,10 @@
 import './App.css'
-import MainPage from './pages/MainPage'
+import MainContainer from './components/MainContainer'
 
 function App() {
   return (
     <>
-     <MainPage />
+     <MainContainer />
     </>
   )
 }
