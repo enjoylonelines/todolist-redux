@@ -1,8 +1,12 @@
-const TodoItem = () => {
+import DeleteButton from "./DeleteButton"
+import TodoText from "./TodoText"
+
+const TodoItem = ({ key, todo }) => {
   return (
-    <div>
-      
-    </div>
+    <li key={key} className="flex">
+      <TodoText todo={todo} />
+      <DeleteButton />
+    </li>
   )
 }
 

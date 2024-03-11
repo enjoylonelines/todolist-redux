@@ -3,7 +3,9 @@ import { todoListReducer } from "./todoList";
 
 
 const store = configureStore({
-  reducer: todoListReducer,
+  reducer: {
+    todoList: todoListReducer,
+  }
 });
 
 export default store;
