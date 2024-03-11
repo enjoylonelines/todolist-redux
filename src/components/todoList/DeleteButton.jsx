@@ -11,7 +11,7 @@ const DeleteButton = ({id}) => {
 
   return (
     <button
-      className="bg-red-700 my-4 px-4 rounded-r-xl hover:bg-red-500 hover:text-slate-700"
+      className="bg-red-700 rounded-r-xl hover:bg-red-500 hover:text-slate-700 w-10 p-1"
       onClick={delTodoHandler}
     >
       Del
