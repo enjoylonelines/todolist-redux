@@ -5,7 +5,6 @@ import TodoText from "./TodoText"
 
 const TodoItem = ({ todoItem }) => {
   const { id, todo, isEdit } = todoItem;
-  console.log(id)
   const [editValue, setEditValue] = useState('');
 
   return (

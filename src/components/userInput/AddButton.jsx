@@ -6,7 +6,7 @@ const AddButton = ({ inputValue, setInputValue }) => {
   const todosActions = todoListActions;
   
   function addTodoHandler() {
-    dispatch(todosActions.addTodo(inputValue));
+    inputValue && dispatch(todosActions.addTodo(inputValue));
     setInputValue('');
   }
 

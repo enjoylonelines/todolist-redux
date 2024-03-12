@@ -18,11 +18,11 @@ const todoListSlice = createSlice({
       const id = action.payload;
       return state.map(item => {
         if (item.id === id) return { id: item.id, todo: item.todo, isEdit: true };
+        else return item; // else면 원래 요소를 반환해야함..
       })
     },
     updateTodo(state, action) {
       const [id, editTodo] = action.payload;
-      console.log(id)
       const idx = state.findIndex(todo => todo.id === id);
       return state.with(idx, { id: id, todo: editTodo, isEdit: false });
     },
