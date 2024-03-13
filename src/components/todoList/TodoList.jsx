@@ -2,9 +2,9 @@ import { useSelector } from "react-redux"
 import TodoItem from "./todoItem/TodoItem";
 
 const TodoList = () => {
-  const todoList = useSelector(state => state.todoList);
-  const doneList = todoList.filter(todo => todo.isDone === true);
-  const notDoneList = todoList.filter(todo => todo.isDone === false);
+  const todoList = useSelector(state => state?.todoList);
+  const doneList = todoList?.filter(todo => todo.isDone === true);
+  const notDoneList = todoList?.filter(todo => todo.isDone === false);
   
   return (
     <section>
