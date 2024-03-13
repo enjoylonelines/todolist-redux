@@ -5,12 +5,12 @@ import TodoText from "./TodoText"
 import CheckButton from "./CheckButton";
 
 const TodoItem = ({ todoItem }) => {
-  const { id, todo, isEdit } = todoItem;
+  const { id, todo, isEdit, isDone } = todoItem;
   const [editValue, setEditValue] = useState('');
 
   return (
     <li className="flex py-4 justify-center ">
-      <CheckButton id={id}/>
+      <CheckButton id={id} isDone={isDone} />
       <TodoText
         todo={todo}
         isEdit={isEdit}

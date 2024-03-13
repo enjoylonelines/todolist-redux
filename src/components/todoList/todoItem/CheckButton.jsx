@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { todoListActions } from "../../../redux/todoList";
 
-const CheckButton = ({ id }) => {
+const CheckButton = ({ id, isDone }) => {
   const dispatch = useDispatch();
   const todosAction = todoListActions;
 
@@ -12,6 +12,7 @@ const CheckButton = ({ id }) => {
     <div className="flex align mr-2 justify-center ">
       <input
         type="checkbox"
+        checked={isDone}
         className="w-5 h-5 justify-center mt-[0.6rem] "
         onChange={() => handleChecked(id)}
       />

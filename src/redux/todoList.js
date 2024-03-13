@@ -25,7 +25,7 @@ const todoListSlice = createSlice({
       const id = action.payload;
       return state.map(todo => {
         if (todo.id === id) return { ...todo, isEdit: true };
-        else return item; // else면 원래 요소를 반환해야함..
+        else return todo; // else면 원래 요소를 반환해야함..
       })
     },
     updateTodo(state, action) {
