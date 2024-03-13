@@ -1,12 +1,11 @@
 import { useDispatch } from "react-redux"
-import { todoListActions } from "../../../redux/todoList";
+import { checkIsDone } from "../../../redux/todoList";
 
 const CheckButton = ({ id, isDone }) => {
   const dispatch = useDispatch();
-  const todosAction = todoListActions;
 
   function handleChecked(id) {
-    dispatch(todosAction.checkIsDone(id));
+    dispatch(checkIsDone(id));
   }
   return (
     <div className="flex align mr-2 justify-center ">

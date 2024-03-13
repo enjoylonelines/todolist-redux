@@ -1,19 +1,18 @@
 import { useDispatch } from "react-redux";
-import { todoListActions } from "../redux/todoList"
+import { resetTodo, saveTodo } from "../redux/todoList"
 import TodoList from "./todoList/TodoList"
 import UserInput from "./userInput/UserInput"
 import SaveButton from "./header/SaveButton";
 import ResetButton from "./header/ResetButton";
 
 const MainContainer = () => {
-  const todosAction = todoListActions;
   const dispatch = useDispatch();
   
   function handleSave() {
-    dispatch(todosAction.saveTodo());
+    dispatch(saveTodo());
   }
   function handleReset() {
-    dispatch(todosAction.resetTodo());
+    dispatch(resetTodo());
   }
 
   return (

@@ -1,12 +1,19 @@
 import { useDispatch } from "react-redux";
-import { todoListActions } from "../../redux/todoList";
+import { addTodo } from "../../redux/todoList";
 
 const AddButton = ({ inputValue, setInputValue }) => {
   const dispatch = useDispatch();
-  const todosActions = todoListActions;
   
   function addTodoHandler() {
-    inputValue && dispatch(todosActions.addTodo(inputValue));
+    if(inputValue) {
+      const newTodo = {
+        id: crypto.randomUUID(),
+        todo: inputValue,
+        isEdit: false,
+        isDone: false,
+      };
+      dispatch(addTodo(newTodo));
+    } 
     setInputValue('');
   }
 

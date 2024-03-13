@@ -1,21 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
- 
+
 const initialState = localStorage.getItem('todoList') ?
-                      JSON.parse(localStorage.getItem('todoList')) : [];
+  JSON.parse(localStorage.getItem('todoList')) : [];
 
 const todoListSlice = createSlice({
   name: 'todoList',
   initialState: initialState,
   reducers: {
     addTodo(state, action) {
-      const newTodo = {
-        id: crypto.randomUUID(),
-        todo: action.payload,
-        isEdit: false,
-        isDone: false,
-      };
-      state.push(newTodo); //내부 Immer가 불변성 관리
+      state.push(action.payload); //내부 Immer가 불변성 관리
     },
     delTodo(state, action) {
       const id = action.payload;
@@ -53,4 +47,11 @@ const todoListSlice = createSlice({
 });
 
 export const todoListReducer = todoListSlice.reducer;
-export const todoListActions = todoListSlice.actions;
+export const { 
+  addTodo,
+  delTodo,
+  setEdit,
+  updateTodo,
+  checkIsDone,
+  saveTodo,
+  resetTodo } = todoListSlice.actions;
