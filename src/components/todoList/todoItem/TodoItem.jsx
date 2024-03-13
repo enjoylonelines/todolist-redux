@@ -2,13 +2,15 @@ import { useState } from "react";
 import DeleteButton from "./DeleteButton"
 import EditButton from "./EditButton"
 import TodoText from "./TodoText"
+import CheckButton from "./CheckButton";
 
 const TodoItem = ({ todoItem }) => {
   const { id, todo, isEdit } = todoItem;
   const [editValue, setEditValue] = useState('');
 
   return (
-    <li className="flex py-4">
+    <li className="flex py-4 justify-center ">
+      <CheckButton id={id}/>
       <TodoText
         todo={todo}
         isEdit={isEdit}

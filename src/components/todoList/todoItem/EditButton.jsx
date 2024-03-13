@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { todoListActions } from "../../redux/todoList"
+import { todoListActions } from "../../../redux/todoList"
 
 const EditButton = ({ todo, id, isEdit, editValue }) => {
   const todosActions = todoListActions;
@@ -16,7 +16,7 @@ const EditButton = ({ todo, id, isEdit, editValue }) => {
 
   return (
     <button
-      className=" bg-blue-700 hover:bg-blue-500 hover:text-slate-700 w-10 p-1"
+      className=" bg-blue-700 hover:bg-blue-500 hover:text-slate-700 p-1 w-[2.5rem]"
       onClick={() => {isEdit ? updateTodo(id, editValue) : editSetter(id) }}
     >{isEdit? <p>Save</p> : <p>Edit</p> }</button>
   )

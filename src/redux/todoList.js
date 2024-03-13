@@ -1,13 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = localStorage.getItem('todoList') ? 
+                      localStorage.getItem('todoList') : [];
 
 const todoListSlice = createSlice({
   name: 'todoList',
   initialState: initialState,
   reducers: {
     addTodo(state, action) {
-      const newTodo = { id: crypto.randomUUID(), todo: action.payload, isEdit: false };
+      const newTodo = {
+        id: crypto.randomUUID(),
+        todo: action.payload,
+        isEdit: false,
+        isDone: false,
+      };
       state.push(newTodo); //내부 Immer가 불변성 관리
     },
     delTodo(state, action) {
@@ -16,15 +22,26 @@ const todoListSlice = createSlice({
     },
     setEdit(state, action) {
       const id = action.payload;
-      return state.map(item => {
-        if (item.id === id) return { id: item.id, todo: item.todo, isEdit: true };
+      return state.map(todo => {
+        if (todo.id === id) return { ...todo, isEdit: true };
         else return item; // else면 원래 요소를 반환해야함..
       })
     },
     updateTodo(state, action) {
       const [id, editTodo] = action.payload;
       const idx = state.findIndex(todo => todo.id === id);
-      return state.with(idx, { id: id, todo: editTodo, isEdit: false });
+      const todo = state.find(todo => todo.id === id);
+      return state.with(idx, { ...todo, todo: editTodo, isEdit: false });
+    },
+    checkIsDone(state, action) {
+      const id = action.payload;
+      return state.map(todo => {
+        if (todo.id === id) return { ...todo, isDone: !todo.isDone };
+        else return todo;
+      })
+    },
+    saveTodo(state) {
+      localStorage.setItem('todoList', JSON.stringify(state));
     },
   }
 });

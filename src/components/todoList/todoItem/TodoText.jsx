@@ -1,5 +1,5 @@
 const TodoText = ({ todo, isEdit, editValue, setEditValue }) => {
-  const commonStyle = "text-2xl w-80 bg-stone-400 rounded-l-xl p-1";
+  const commonStyle = "text-2xl bg-stone-400 rounded-l-xl p-1 w-[27rem]";
   
   return (
     <>

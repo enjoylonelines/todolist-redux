@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { todoListActions } from "../../redux/todoList";
+import { todoListActions } from "../../../redux/todoList";
 
 const DeleteButton = ({id}) => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const DeleteButton = ({id}) => {
 
   return (
     <button
-      className="bg-red-700 rounded-r-xl hover:bg-red-500 hover:text-slate-700 w-10 p-1"
+      className="bg-red-700 rounded-r-xl hover:bg-red-500 hover:text-slate-700 p-1 w-[2.5rem]"
       onClick={delTodoHandler}
     >
       Del

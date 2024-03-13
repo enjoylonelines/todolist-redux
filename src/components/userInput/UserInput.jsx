@@ -6,7 +6,7 @@ const UserInput = () => {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <div className="flex justify-center mb-4">
+    <div className="flex justify-center mb-4 w-[35rem]">
       <Input inputValue={inputValue} setInputValue={setInputValue} />
       <AddButton inputValue={inputValue} setInputValue={setInputValue}/>
     </div>
